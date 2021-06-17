@@ -22,7 +22,7 @@ The goal is to read <mark>mempool.csv</mark> and generate a new block of transac
 
 The task can basically be broken down into 4 stages. Our script file must take in a CSV, operate on it and dump a `.txt` file with valid transaction IDs. My choice of weapon was Python. You might notice that there are three files in the repo. The Jupyter Notebook (solution.ipynb) is my test grounds wherein I test code snippets and validate them for different inputs. Hence, this file can be ignored as it's just a test file.
 
-The real code resides in `driver.py` and `utils.py`. `utils.py` hosts all the utility functions that I've created such as the file parser, valid transactions selector, optimising function for picking the best possible transactions and the text file writer. These functions are used in the `driver.py` file wherein they're called. The driver code basically performs the following function sequentially -
+**The real code resides in [`utils.py`](https://github.com/theadityasam/btc_challenge/blob/main/utils.py) and [`driver.py`](https://github.com/theadityasam/btc_challenge/blob/main/driver.py)**. `utils.py` hosts all the utility functions that I've created such as the file parser, valid transactions selector, optimising function for picking the best possible transactions and the text file writer. These functions are used in the `driver.py` file wherein they're called. The driver code basically performs the following function sequentially -
 
 - **Parsing the CSV** - This step includes reading lines from the given csv and splitting the line by "," (comma) and returning a list of lists. This is as simple as opening a file and running the following
 
