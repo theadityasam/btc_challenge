@@ -1,3 +1,4 @@
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1TNftzAGhL-y4GrBq-aq9tSoILE2I_YpJ?usp=sharing)
 # Bitcoin Test
 
 ## Problem
@@ -70,7 +71,7 @@ This returns 3 lists, one for transactions IDs, one for transaction fees and one
     ![Trial 6000](https://github.com/theadityasam/btc_challenge/blob/main/images/trial_6000.png)    
     
 
-- **Dumping to a text file** - This step is a simple, opening the file and writing lines to it. The generated file name is of the form - **"_filename_ current_time_in_UTC"**. If no filename is provided, `"Blocklist"` is considered as default. The generated files can be checked in the repo. You can check the last two "Blocklist..txt" that have been generated for "trial.csv". [Trial.csv output with BS 6000](https://github.com/theadityasam/btc_challenge/blob/main/Blocklist%202021-06-17%2013:30:30.063371.txt) [Trial.csv output with BS 4e6](https://github.com/theadityasam/btc_challenge/blob/main/Blocklist%202021-06-17%2013:29:41.301804.txt)
+- **Dumping to a text file** - This step is a simple, opening the file and writing lines to it. The generated file name is of the form - **"_filename_ current_time_in_UTC"**. If no filename is provided, `"Blocklist"` is considered as default. The generated files can be checked in the repo. You can check the last two "Blocklist..txt" that have been generated for "trial.csv". `[Trial.csv output with BS 6000](https://github.com/theadityasam/btc_challenge/blob/main/Blocklist%202021-06-17%2013:30:30.063371.txt)` `[Trial.csv output with BS 4e6](https://github.com/theadityasam/btc_challenge/blob/main/Blocklist%202021-06-17%2013:29:41.301804.txt)` `[Mempool.csdv output with VS 100,000](https://github.com/theadityasam/btc_challenge/blob/main/block.txt)`
 
 ## Caveats
 
