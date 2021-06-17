@@ -18,8 +18,8 @@ def create_valid_mempool_list(parsed):
     parent_set = set()
     for x in parsed:
         if x[1].isnumeric() and x[2].isnumeric():
-            parent_set.add(x[0])
             if x[3] == "" or parent_set.issuperset(x[3].split(';')):
+                parent_set.add(x[0])
                 block_ids.append(x[0])
                 block_fee.append(int(x[1]))
                 block_wts.append(int(x[2]))
@@ -46,10 +46,13 @@ def check_inputs(values, weights, n_items, capacity):
 # Use Dynamic Programming to get the optimal block combination
 def get_optimal_blocks_dp(values, weights, n_items, capacity=4000000, return_all=False):
     check_inputs(values, weights, n_items, capacity)
+    print("Input number of transactions: "+str(n_items))
+    print("Max Block Size: "+str(capacity))
     table = np.zeros((n_items+1, capacity+1), dtype=np.float32)
     keep = np.zeros((n_items+1, capacity+1), dtype=np.float32)
-    loop = tqdm(total=n_items+1, position=1, leave=False)
+    loop = tqdm(total=n_items, position=0, leave=False)  # For the progress bar
     for i in range(1, n_items+1):
+        # Display progress in progress bar
         loop.set_description("Progress...".format(i))
         for w in range(0, capacity+1):
             wi = weights[i-1]  # weight of current item
@@ -72,6 +75,7 @@ def get_optimal_blocks_dp(values, weights, n_items, capacity=4000000, return_all
     if return_all:
         max_val = table[n_items, capacity]
         return (picks, max_val)
+    print("\nNumber of transactions selected: "+str(len(picks)))
     return picks
 
 
@@ -82,3 +86,4 @@ def dump_to_text(result, name="Blocklist "):
     for element in result:
         textfile.write(element + "\n")
     textfile.close()
+    return filename
