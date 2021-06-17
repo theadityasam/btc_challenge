@@ -76,7 +76,7 @@ def get_optimal_blocks_dp(values, weights, n_items, capacity=4000000, return_all
 
 
 # Takes in a list and dumps to a text file
-def dump_to_text(result, name="Blocklist"):
+def dump_to_text(result, name="Blocklist "):
     filename = name+str(datetime.utcnow())+".txt"
     textfile = open(filename, "w")
     for element in result:
