@@ -1,7 +1,7 @@
 import utils
 
 
-class MempoolTransaction():
+class MempoolTransaction():  # Class for holding transaction info
     def __init__(self, txid, fee, weight):
         self.txid = txid
         self.fee = int(fee)
@@ -12,14 +12,16 @@ class MempoolTransaction():
 
 
 def main():
+    # Code parameters
     filename = "mempool.csv"
     max_block_weight = 4e6
 
     # Parsing the CSV
     parsed = utils.parse_csv(filename)
     print("-> Parsed - "+filename)
-    block_ids, block_fee, block_wts = utils.create_valid_mempool_list(parsed)
+
     # Generating valid mempool entries
+    block_ids, block_fee, block_wts = utils.create_valid_mempool_list(parsed)
     mempool_list = [MempoolTransaction(
         block_ids[i], block_fee[i], block_wts[i]) for i in range(len(block_ids))]
     print("-> Generated valid mempool list")
@@ -41,7 +43,8 @@ def main():
     generated_file = utils.dump_to_text(result)
     print("-> Generated block file: "+generated_file)
 
-    print("-> Test the generated blockfile")
+    # Testing the generated blockfile
+    print("-> Testing the generated blockfile")
     utils.test_block(block_ids, block_fee,
                      block_wts, result)
 
